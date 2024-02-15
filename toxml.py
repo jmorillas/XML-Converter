@@ -3,7 +3,7 @@ from xml.dom import minidom
 import xml.etree.ElementTree as ET
 # import os
 
-df = pd.read_csv('Pythagoras_Cashin_and_out_Nov_2023.csv', sep=',')
+df = pd.read_csv('FileName-in.csv', sep=',')
 df = df.dropna()
 df = df.reset_index()  # make sure indexes pair with number of rows
 df.insert(2, "PartnerType", '')	
@@ -107,6 +107,6 @@ for index, row in df.iterrows():
 # print(ET.dump(root))
 
 xmlstr = minidom.parseString(ET.tostring(root)).toprettyxml(indent="   ")
-with open("Cash_in_out_pythagoras_Nov_bcm.xml", "w") as f:
+with open("FileName-out.xml", "w") as f:
     f.write(xmlstr)
 
